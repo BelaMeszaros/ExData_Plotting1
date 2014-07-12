@@ -18,10 +18,13 @@ plot3 <- function () {
     # Deleting the Date and the Time columns
     data <- data[,3:10]
     png(filename = "plot3.png")
+    # A plot with type="n" creates the chart area without plotting
     plot(data$DateTime, data$Sub_metering_1, type="n", main="", xlab="", ylab="Energy sub metering")
+    # This is where the line charts are drawn
     lines(data$DateTime, data$Sub_metering_1)
     lines(data$DateTime, data$Sub_metering_2, col="red")
     lines(data$DateTime, data$Sub_metering_3, col="blue")
+    # Legend with line: lty="solid"
     legend("topright",
            legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),
            col=c("black","red", "blue"), lty= "solid")
